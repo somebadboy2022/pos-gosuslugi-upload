@@ -13,7 +13,7 @@ function generateRandomString($length = 25)
 
 error_reporting(E_ALL);
 
-$curlLimit = 10;
+$curlLimit = 30;
 $total     = 10000000;
 $file      = 5;
 
@@ -77,8 +77,11 @@ for ($i = 1; $i <= $iterations; $i++) {
 
     $results = [];
     foreach ($curls as $k => $curl) {
-        $r = json_decode(curl_multi_getcontent($curl), true);
-        echo $k . ': ' . curl_getinfo($curl, CURLINFO_HTTP_CODE) .': '. $r['id'] . PHP_EOL;
+        $id = 'nope';
+        if ($r = json_decode(curl_multi_getcontent($curl), true)) {
+            $id = $r['id'];
+        }
+        echo $k . ': ' . curl_getinfo($curl, CURLINFO_HTTP_CODE) .': '. $id . PHP_EOL;
     }
 
     unset($curls);
