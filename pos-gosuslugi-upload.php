@@ -15,7 +15,7 @@ error_reporting(E_ALL);
 
 $curlLimit = 30;
 $total     = 10000000;
-$file      = 5;
+$file      = 2;
 
 
 if (!file_exists(dirname(__FILE__) . "/dummies" . $file . ".jpeg")) {
