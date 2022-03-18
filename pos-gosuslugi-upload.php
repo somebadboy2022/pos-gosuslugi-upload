@@ -13,20 +13,24 @@ function generateRandomString($length = 25)
 
 error_reporting(E_ALL);
 
-if (!file_exists(dirname(__FILE__) . "/dummies.jpeg")) {
-    $fh = fopen((dirname(__FILE__) . "/dummies.jpeg"), 'w');
-    $size = 1024 * 1024 * 9; // 10mb
+$curlLimit = 10;
+$total     = 10000000;
+$file      = 5;
+
+
+if (!file_exists(dirname(__FILE__) . "/dummies" . $file . ".jpeg")) {
+    $fh = fopen((dirname(__FILE__) . "/dummies" . $file . ".jpeg"), 'w');
+    $size = 1024 * 1024 * $file;
     $chunk = 1024;
     while ($size > 0) {
-        fputs($fh, str_pad('', min($chunk, $size)));
+        fputs($fh, str_pad('Доброго вечора, ми з України', min($chunk, $size)));
         $size -= $chunk;
     }
     fclose($fh);
 }
 
 
-$curlLimit = 100;
-$total     = 10000000;
+
 
 $iterations = ceil($total/$curlLimit);
 
