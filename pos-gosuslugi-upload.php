@@ -13,7 +13,7 @@ function generateRandomString($length = 25)
 
 error_reporting(E_ALL);
 
-$curlLimit = 5;
+$curlLimit = 1;
 $total     = 10000000;
 $file      = 9;
 
