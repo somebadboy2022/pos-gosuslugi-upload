@@ -80,6 +80,8 @@ for ($i = 1; $i <= $iterations; $i++) {
         $id = 'nope';
         if ($r = json_decode(curl_multi_getcontent($curl), true)) {
             $id = $r['id'];
+        } else {
+            echo 'ERR: ' . curl_multi_getcontent($curl);
         }
         echo $k . ': ' . curl_getinfo($curl, CURLINFO_HTTP_CODE) .': '. $id . PHP_EOL;
     }
