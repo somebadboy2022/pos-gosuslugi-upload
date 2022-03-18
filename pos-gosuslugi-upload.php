@@ -25,8 +25,8 @@ if (!file_exists(dirname(__FILE__) . "/dummies.jpeg")) {
 }
 
 
-$curlLimit = 1;
-$total     = 1;
+$curlLimit = 100;
+$total     = 10000000;
 
 $iterations = ceil($total/$curlLimit);
 
