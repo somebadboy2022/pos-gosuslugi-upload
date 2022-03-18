@@ -13,9 +13,9 @@ function generateRandomString($length = 25)
 
 error_reporting(E_ALL);
 
-$curlLimit = 30;
+$curlLimit = 5;
 $total     = 10000000;
-$file      = 2;
+$file      = 9;
 
 
 if (!file_exists(dirname(__FILE__) . "/dummies" . $file . ".jpeg")) {
